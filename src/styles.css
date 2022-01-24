@@ -1,0 +1,169 @@
+:root {
+  --color: blue;
+
+  --header-height: 60px;
+  --footer-height: 60px;
+  --main-background: linear-gradient(150deg, rgba(236, 208, 203, 0.707) -10%, rgba(229, 233, 227, 1) 80%);
+  --shadow-color-1: rgba(110, 132, 136, 0.296);
+  --shadow-color-2: rgba(22, 64, 70, 0.576);
+  --gradient-red: linear-gradient(120deg, rgba(209, 18, 59, 0.939) 0%, rgba(221, 97, 97, 0.857) 100%);
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.App-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.App-header {
+  height: var(--header-height);
+  /* background-color: #30940e; */
+  min-height: calc(100vh-120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-footer {
+  box-sizing: border-box;
+  /* background-color:#30940e; */
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+  padding: 1rem;
+  height: var(--footer-height);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--main-background);
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.Display-Panel {
+  color: black;
+  max-width: 50vw;
+  overflow: scroll;
+}
+
+#Date-Panel {
+  padding: 6px;
+  background-color: rgb(238, 236, 236);
+  width: 400px;
+  box-shadow: 16px 20px 40px 8px var(--shadow-color-1), 1px 0px 8px -4px var(--shadow-color-2);
+  height: 80vh;
+  position: fixed center left;
+  top: 0;
+  border-radius: 10px;
+  padding-bottom: 12px;
+  margin-left: 5rem;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: calc(var(--header-height) + 1rem); */
+  /* background-color: blue; */
+}
+
+.Timeline-Event {
+  box-shadow: 0px 6px 10px 0px var(--shadow-color-1), 0px 0px 8px -4px rgba(2, 10, 10, 0.254);
+  color: black;
+  /* background-color:rgb(243, 243, 239); */
+  border-radius: 6px;
+  margin: 0.6rem 0;
+  padding: 20px;
+
+  display:flex;
+  flex-direction: row;
+  overflow:hidden;
+
+}
+
+#Event-List {
+  /* background-color: #c8cecb; */
+  list-style-type: none;
+  margin: 0;
+  padding: 2px 8px;
+  height: 77%;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  background:
+    linear-gradient(#dddadc 33%, rgba(220, 214, 214, 0)),
+    linear-gradient(rgba(201, 20, 113, 0), #dddadc 66%) 0 100%,
+    radial-gradient(farthest-side at 50% 0, var(--shadow-color-1), rgba(0, 0, 0, 0)),
+    radial-gradient(farthest-side at 50% 100%, var(--shadow-color-1), rgba(255, 255, 255, 0)) 0 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll;
+  background-size: 100% 45px, 100% 45px, 100% 15px, 100% 15px;
+  border-radius: 12px;
+  box-shadow: inset 0px 0px 8px 1px var(--shadow-color-1);
+}
+
+input{
+   border-radius: 12px;
+   padding: 6px 8px;
+   margin: 6px;
+   border: transparent;
+   box-shadow: inset 0px 0px 4px 0px rgba(0, 0, 0, 0.3);
+   width: 90%;
+}
+
+#description-input{
+  height: 4rem;
+  vertical-align: top;
+  text-align: left;
+}
+
+#event-form{
+  display:flex;
+  flex-direction: row;
+}
+
+.event-button{
+  height: 100%;
+  width: 40px;
+  flex-shrink: 0;
+  align-self: left;
+  height: inherit;
+  margin: -20px;
+  margin-right: 1rem;
+  border: none;
+  background: rgba(209, 18, 76, 0);
+  transition: all 0.4s ease-out;
+  opacity: 0;
+  width: 0;
+}
+
+.Timeline-Event:hover .event-button, .Timeline-Event:focus .event-button{
+  background: var(--gradient-red);
+  opacity: 100;
+
+  width: 40px;
+}
+
+.event-button h4{
+  opacity: 1;
+}

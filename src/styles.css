@@ -98,8 +98,15 @@ code {
 
   display:flex;
   flex-direction: row;
-  overflow:hidden;
+  overflow: hidden;
+}
 
+.Timeline-Event .details {
+  text-align: left;
+}
+
+.Timeline-Event .description{
+  color: black;
 }
 
 #Event-List {

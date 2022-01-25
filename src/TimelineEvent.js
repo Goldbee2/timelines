@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
-function TimelineEvent(key, year, description, deleteEvent, eventList) {
-  console.log("id:", key, "eventList:", eventList);
-
+function TimelineEvent(props) {
   return (
-    <li key={key.toString()} className="Timeline-Event">
-      <button className="event-button" onClick={() => deleteEvent(key, eventList)}>
+    <li key={props.id} className="Timeline-Event">
+      <button className="event-button" onClick={() => props.deleteEvent(props.id)}>
         <h4>x</h4>
       </button>
-      <div>
-        <h3>{year}</h3>
-        <p>{description}</p>
+      <div className="details">
+        <h3>{props.year} {props.title}</h3>
+        <p className="description">{props.description}</p>
       </div>
     </li>
   );

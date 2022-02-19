@@ -4,14 +4,14 @@ import DatePanel from "./DatePanel.js";
 import DisplayPanel from "./DisplayPanel";
 import TimelineEvent from "./TimelineEvent";
 import Form from "./Form";
-
+import Canvas from "./canvas/Canvas";
 
 function App(props) {
 
   const [listOfEvents, setTLEvents] = useState(props.timelineEvents);
   const [currID, setID] = useState(0);
   
-  const eventList = listOfEvents.map(tlEvent=> (
+  const eventList = listOfEvents.sort((a, b)=>compareNumbers(a.year, b.year)).map(tlEvent=> (
     <TimelineEvent
       id={tlEvent.id}
       key={tlEvent.id}
@@ -20,7 +20,10 @@ function App(props) {
       title={tlEvent.title}
       deleteEvent={deleteEvent}
       />));
-
+      
+  function compareNumbers(a, b){
+    return a-b;
+  }
 
   function addTLEvent(year, title, description) {
     setID(currID + 1);
@@ -36,29 +39,23 @@ function App(props) {
   }
 
 
+
   return (
     <div className="App">
-      <header className="App-header">Test for now</header>
+      <header className="App-header">Eli's timeline thingy</header>
       <main className="App-main">
         {/* <DatePanel props={timelineEvents}/> */}
         {/* FORM INSTEAD OF DATEPANEL??? */}
         <div id="Date-Panel">
           <div id="event-form">
-            <Form addTLevent = {addTLEvent}/>
-            <button
-              onClick={() => [
-                addTLEvent(
-                  currID, "TITLE",
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-                ),
-              ]}
-            >
-              BUTTON
-            </button>
+            <Form addTLEvent = {addTLEvent}/>
           </div>
 
-          <h1>Events</h1>
+          <h2>EVENTS</h2>
           <ul id="Event-List">{eventList}</ul>
+        </div>
+        <div id="canvas-container">
+          <Canvas id="timeline-canvas" tlEvents={listOfEvents.sort((a, b)=>compareNumbers(a.year, b.year))} width={'1920px'} height={'1080px'}/>
         </div>
       </main>
       <footer className="App-footer">By Eli Goldberg</footer>

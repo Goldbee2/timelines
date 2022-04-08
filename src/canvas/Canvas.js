@@ -193,6 +193,6 @@ function Canvas(props) {
     canvasContent(ctx);
   });
 
-  return <canvas width="800px" height="1000px" ref={canvasRef} />;
+  return <canvas width={props.width} height={props.height} ref={canvasRef} />;
 }
 export default Canvas;

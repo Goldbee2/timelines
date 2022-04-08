@@ -50,7 +50,7 @@ function App(props) {
         {/* <DatePanel props={timelineEvents}/> */}
         {/* FORM INSTEAD OF DATEPANEL??? */}
         <div id="container-left">
-          <h1>Timelines</h1>
+          <h1>Timelines<span class="eli-subtitle"> by Eli Goldberg</span></h1>
           <div id="Date-Panel" className="panel">
             <div id="event-form">
               <Form addTLEvent={addTLEvent} />
@@ -67,8 +67,8 @@ function App(props) {
             tlEvents={listOfEvents.sort((a, b) =>
               compareNumbers(a.year, b.year)
             )}
-            width={"1920px"}
-            height={"1080px"}
+            width={"1000px"}
+            height={"940px"}
           />
         </div>
       </main>

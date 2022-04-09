@@ -220,12 +220,14 @@ input {
   transition: all 0.4s ease-out;
   opacity: 0;
   width: 0;
+  color:white;
+  font-weight: lighter;
+  font-size: 24px;
 }
 
 .Timeline-Event:hover .event-button, .Timeline-Event:focus .event-button {
   background: var(--gradient-red);
   opacity: 100;
-
   width: 40px;
 }
 
